@@ -109,7 +109,7 @@ function multiplyArray(multArr) { //eslint-disable-line
   var secondProduct = multiply(firstProduct[0], multArr[2]);
   var productMultiplyArrayString = 'The numbers ' + [multArr] + ' have a product of ' + secondProduct[0] + '.';
 
-  return[secondProduct[0], productMultiplyArrayString];
+  return [secondProduct[0], productMultiplyArrayString];
 
 }
 
@@ -134,14 +134,30 @@ This function should be dynamic, accepting an array of any length.
 
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyAnyArray() function and see if the test passes.*/
 
+/* function multiply(a, b) { //eslint-disable-line
+  var product = a * b
+  var productArray = 'The product of ' + a + ' and ' + b + ' is ' + product + '.'
+  return [product, productArray];
+} */
+
+
 // Write your code here
 var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
+  var firstProductDynamicArray = multiply(dynamicArray[0], dynamicArray[1]);
+ 
+  for(var i = 2; i < dynamicArray.length; i++){
+      var thisThing = multiply(firstProductDynamicArray[0], dynamicArray[i + 1],); 
+      return thisThing[0];
+  }
 
+  var anyArrayAnswerString = 'The numbers 1,2,3,4,5 have a product of ' + firstProductDynamicArray[0] + '.';
+  return [firstProductDynamicArray[0], anyArrayAnswerString];
+  console.log(testDynamicArray[0], testDynamicArray.length);
 }
-
+// I think I was on the right track here, but couldn't quite figure out how to make this loop work.
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
